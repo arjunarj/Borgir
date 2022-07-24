@@ -23,7 +23,7 @@ const distube = new DisTube.default(client, {
         },
     })],
 })
-const prefix = '!'; 
+const prefix = '.'; 
 
 module.exports= async function (message){
     // if (message.author.bot || !message.inGuild()) return
