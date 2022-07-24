@@ -1,0 +1,22 @@
+{
+  "name": "borgir2.0",
+  "version": "1.0.0",
+  "description": "discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arj",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.8.0",
+    "@discordjs/voice": "^0.11.0",
+    "@distube/spotify": "^1.3.2",
+    "discord.js": "^13.2.0",
+    "distube": "^3.3.1",
+    "dotenv": "^16.0.1",
+    "ffmpeg-static": "^4.4.1",
+    "fs": "^0.0.1-security",
+    "libsodium-wrappers": "^0.7.10"
+  }
+}
