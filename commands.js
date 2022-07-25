@@ -14,6 +14,9 @@ const client = new Discord.Client({
 const distube = new DisTube.default(client, {
     searchSongs: 5,
     searchCooldown: 30,
+    leaveOnEmpty: false,
+    leaveOnFinish: false,
+    leaveOnStop: false,
     plugins: [new SpotifyPlugin({
         parallel: true,
         emitEventsAfterFetching: false,
