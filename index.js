@@ -15,7 +15,7 @@ const client = new Discord.Client({
     searchSongs: 5,
     searchCooldown: 30,
     leaveOnEmpty: true,
-	leaveOnFinish: true,
+	leaveOnFinish: false,
 	leaveOnStop: false,
     plugins: [new SpotifyPlugin({
         parallel: true,
@@ -128,9 +128,7 @@ client.on('messageCreate', message => {
 
 // Queue status template
 const status = queue =>
-	`Volume: \`${queue.volume}%\` | Filter: \`${
-		queue.filters.join(', ') || 'Off'
-	}\` | Loop: \`${
+	`Volume: \`${queue.volume}%\` | Loop: \`${
 		queue.repeatMode
 			? queue.repeatMode === 2
 				? 'All Queue'
@@ -140,13 +138,13 @@ const status = queue =>
 
 // DisTube event listeners, more in the documentation page
 distube
-	.on('playSong', (queue, song) =>
-		queue.textChannel?.send(
-			`Playing \`${song.name}\` - \`${
-				song.formattedDuration
-			}\`\nRequested by: ${song.user}\n${status(queue)}`,
-		),
-	)
+	// .on('playSong', (queue, song) =>
+	// 	queue.textChannel?.send(
+	// 		`Playing \`${song.name}\` - \`${
+	// 			song.formattedDuration
+	// 		}\`\nRequested by: ${song.user}\n${status(queue)}`,
+	// 	),
+	// )
 	.on('addSong', (queue, song) =>
 		queue.textChannel?.send(
 			`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`,
@@ -165,13 +163,13 @@ distube
 			`An error encountered: ${e.message.slice(0, 2000)}`,
 		);
 	})
-	.on('finish', queue => queue.textChannel?.send('Finish queue!'))
-	.on('finishSong', queue =>
-		queue.textChannel?.send('Finish song!'),
-	)
-	.on('disconnect', queue =>
-		queue.textChannel?.send('Disconnected!'),
-	)
+	// .on('finish', queue => queue.textChannel?.send('Finish queue!'))
+	// .on('finishSong', queue =>
+	// 	queue.textChannel?.send('Finish song!'),
+	// )
+	// .on('disconnect', queue =>
+	// 	queue.textChannel?.send('Disconnected!'),
+	// )
 	.on('empty', queue =>
 		queue.textChannel?.send(
 			'The voice channel is empty! Leaving the voice channel...',
