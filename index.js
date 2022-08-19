@@ -84,11 +84,24 @@ client.on('messageCreate', message => {
 		message.channel.send('Leaved the voice channel!');
 	}
 
-	if (command === 'resume') distube.resume(message);
+	if (command === 'resume') {
+		distube.resume(message)
+		message.channel.send("Playing ▶️")
+	};
 
-	if (command === 'pause') distube.pause(message);
+	if (command === 'pause') {
+		distube.pause(message)
+		message.channel.send("Paused ⏸️")
+	};
 
-	if (command === 'skip' || command === 's') distube.skip(message);
+	if (command === 'skip' || command === 's') {
+		distube.skip(message)
+		message.channel.send("Skipped ⏭️")
+	};
+	if (command === 'shuffle') {
+		distube.shuffle(message)
+		message.channel.send("Shuffled 🔀")
+	};
 
 	if (command === 'queue' || command === 'q') {
 		const queue = distube.getQueue(message);
