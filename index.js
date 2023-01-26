@@ -1,7 +1,10 @@
 const Discord = require('discord.js')
 const { DisTube } = require('distube')
-const { SpotifyPlugin } = require('@distube/spotify')
+const { SpotifyPlugin } = require('@distube/spotify');
+const keepAlive = require('./server');
 require('dotenv').config();
+
+keepAlive();
 
 const client = new Discord.Client({
     intents: [
